@@ -9,7 +9,7 @@ namespace PbRename
     {
         static void Main(string[] args)
         {
-            args = new[] { "*.png", "9", "4" };
+            //args = new[] { "*.png", "9", "4" };
 
             List<int> indexes = new List<int>(args.Length);
             if (args.Length < 1) { Console.WriteLine("Ошибка при передаче параметров."); Console.WriteLine("Для выхода нажмите любую клавишу..."); return; }
@@ -59,8 +59,8 @@ namespace PbRename
             int[] curIndesex = indexes.Select(x => 1).ToArray();
             curIndesex[curIndesex.Length - 1] = 0;
 
-            files = Enumerable.Range(100, 500).Select(x => string.Format("assss\asdsadsad__{0}.png", x.ToString())).ToArray();
-            var paths = new List<string>(files.Length);
+            //files = Enumerable.Range(100, 500).Select(x => string.Format("assss\asdsadsad__{0}.png", x.ToString())).ToArray();
+            //var paths = new List<string>(files.Length);
 
             files = files.OrderBy(x => x)
                 .Select((x, i) => new { x = x, i = i })
@@ -85,8 +85,8 @@ namespace PbRename
                 string ext = f.Split('.').LastOrDefault();
 
                 var newPth = splPath.Union(new[] { resultFolder, string.Join("_", curIndesex) + (string.IsNullOrWhiteSpace(ext) ? "" : "." + ext.Trim()) }).ToArray();
-                paths.Add(string.Join("\\", newPth));
-                //File.Copy(f, Path.Combine(newPth), true);
+               // paths.Add(string.Join("\\", newPth));
+                File.Copy(f, Path.Combine(newPth), true);
             }
 
             Console.WriteLine("Количество файлов: {0}", files.Length);
