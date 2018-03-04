@@ -1,0 +1,6 @@
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\bin\Debug\PbRename.exe.config
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\bin\Debug\PbRename.exe
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\bin\Debug\PbRename.pdb
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\obj\Debug\pb_rename.csproj.CoreCompileInputs.cache
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\obj\Debug\PbRename.exe
+C:\Users\Misch\OneDrive\Documents\Visual Studio 2017\Projects\pb_rename\pb_rename\obj\Debug\PbRename.pdb
