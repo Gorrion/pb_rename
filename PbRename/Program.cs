@@ -9,7 +9,7 @@ namespace PbRename
     {
         static void Main(string[] args)
         {
-            //args = new[] { "*.png", "9", "4" };
+            //args = new[] { "*.png", "9", "4", "9" };
 
             List<int> indexes = new List<int>(args.Length);
             if (args.Length < 1) { Console.WriteLine("Ошибка при передаче параметров."); Console.WriteLine("Для выхода нажмите любую клавишу..."); return; }
@@ -29,14 +29,15 @@ namespace PbRename
             var max = 1;
             for (var i = 0; i < indexes.Count; i++) { max = max * indexes[i]; }
 
-            var lastGroup = Math.Sqrt(indexes[indexes.Count - 1]);
-            var ta = Enumerable.Range(1, max).ToArray().Split(2).ToArray();
+            var lastIndex = indexes[indexes.Count - 1];
+            var lastIndexCol = (int)Math.Sqrt(lastIndex);
+            var ta = Enumerable.Range(1, max).ToArray().Split(lastIndexCol).ToArray();
 
             var lr = new List<List<int>>();
 
             for (var i = 0; i < ta.Length; i++)
             {
-                if (lr.Count > 0 && lr.Where(x => x.Count != 4).Count() == 0) { lr.Add(ta[i].ToList()); continue; }
+                if (lr.Count > 0 && lr.Where(x => x.Count != lastIndex).Count() == 0) { lr.Add(ta[i].ToList()); continue; }
                 if (lr.Count == 0 || lr.Count % 3 != 0) { lr.Add(ta[i].ToList()); continue; }
 
                 lr[lr.Count - 3 + i % 3].AddRange(ta[i]);
