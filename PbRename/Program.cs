@@ -9,6 +9,7 @@ namespace PbRename
     {
         static void Main(string[] args)
         {
+            //args = new[] { "*.png", "9", "4" };
             //args = new[] { "*.png", "9", "4", "9" };
 
             List<int> indexes = new List<int>(args.Length);
@@ -34,13 +35,14 @@ namespace PbRename
             var ta = Enumerable.Range(1, max).ToArray().Split(lastIndexCol).ToArray();
 
             var lr = new List<List<int>>();
+            var skipCount = (int)Math.Sqrt(max / indexes[indexes.Count -1]);
 
             for (var i = 0; i < ta.Length; i++)
             {
                 if (lr.Count > 0 && lr.Where(x => x.Count != lastIndex).Count() == 0) { lr.Add(ta[i].ToList()); continue; }
-                if (lr.Count == 0 || lr.Count % 3 != 0) { lr.Add(ta[i].ToList()); continue; }
+                if (lr.Count == 0 || lr.Count % skipCount != 0) { lr.Add(ta[i].ToList()); continue; }
 
-                lr[lr.Count - 3 + i % 3].AddRange(ta[i]);
+                lr[lr.Count - skipCount + i % skipCount].AddRange(ta[i]);
             }
 
             var hash = new Dictionary<int, int>();
@@ -94,9 +96,6 @@ namespace PbRename
             Console.WriteLine("Для выхода нажмите любую клавишу...");
             Console.ReadKey();
         }
-
-
-
     }
 
     public static class Ext
